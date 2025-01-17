@@ -1,0 +1,73 @@
+# General
+CLUSTER_NAME: env1-aks
+NAMESPACE: env1-ns
+PROVIDER: azure
+V4_DEPLOYMENT_OPERATOR_ENABLED: false
+
+# MISC
+DEPLOY: true # Set to false to stop at generating the manifest
+LOADBALANCER_SOURCE_RANGES: ['XXXXXXXXXX']
+
+# Storage
+V4_CFG_MANAGE_STORAGE: true
+
+# Jump Server
+JUMP_SVR_PRIVATE_KEY: '~/.ssh/XXXXXXXXXX'
+
+# SAS API Access
+V4_CFG_SAS_API_KEY: XXXXXXXXXX
+V4_CFG_SAS_API_SECRET: XXXXXXXXXX
+
+# Viya Order Information
+V4_CFG_ORDER_NUMBER:  XXXXXXXXXX
+V4_CFG_CADENCE_NAME: XXXXXXXXXX
+V4_CFG_CADENCE_VERSION: 'XXXXXXXXXX'
+
+# CAS Configuration - Set Worker Count to Enable MPP mode
+V4_CFG_CAS_WORKER_COUNT: 2
+V4_CFG_CAS_ENABLE_LOADBALANCER: true
+
+# Additional components
+V4_CFG_ELASTICSEARCH_ENABLE: true
+V4_CFG_EMBEDDED_LDAP_ENABLE: true
+
+## Ingress
+V4_CFG_INGRESS_TYPE: ingress
+V4_CFG_INGRESS_FQDN: XXXXXXXXXX # fqdn
+
+# External Postgres - Specify Shared Services database name
+V4_CFG_POSTGRES_SERVERS:
+  default:
+    database: env1-ss
+
+# TLS Security
+V4_CFG_TLS_MODE: "full-stack" # [full-stack|front-door|disabled]
+V4_CFG_TLS_GENERATOR: openssl
+V4_CFG_TLS_CERT: /data/XXXXXXXXXX-aks/XXXXXXXXXX-ns/site-config/security/XXXXXXXXXX.crt
+V4_CFG_TLS_KEY: /data/XXXXXXXXXX-aks/XXXXXXXXXX-ns/site-config/security/XXXXXXXXXX.key
+V4_CFG_TLS_TRUSTED_CA_CERTS: /data/XXXXXXXXXX-aks/XXXXXXXXXX-ns/site-config/security/cacerts/
+
+## Consul UI
+V4_CFG_CONSUL_ENABLE_LOADBALANCER: true
+
+## SAS/CONNECT
+V4_CFG_CONNECT_ENABLE_LOADBALANCER: true
+
+## Monitoring and Logging
+V4M_BASE_DOMAIN: XXXXXXXXXX
+V4M_CERT: /data/XXXXXXXXXX-aks/XXXXXXXXXX-ns/site-config/security/XXXXXXXXXX.crt
+V4M_KEY: /data/XXXXXXXXXX-aks/XXXXXXXXXX-ns/site-config/security/XXXXXXXXXX.key
+
+# Passwords for Monitoring and logging
+V4M_KIBANA_PASSWORD: XXXXXXXXXX
+V4M_GRAFANA_PASSWORD: XXXXXXXXXX
+V4M_KIBANASERVER_PASSWORD: XXXXXXXXXX
+V4M_LOGCOLLECTOR_PASSWORD: XXXXXXXXXX
+V4M_METRICGETTER_PASSWORD: XXXXXXXXXX
+
+# Keep services minimal in clustering
+# V4_CFG_CLUSTER_NODE_POOL_MODE: minimal
+
+# Viya Start and Stop Schedule based on UTC time
+V4_CFG_VIYA_START_SCHEDULE: "15 10 * * 1-5"
+V4_CFG_VIYA_STOP_SCHEDULE: "40 23 * * 1-5"
