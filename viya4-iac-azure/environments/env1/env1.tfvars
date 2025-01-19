@@ -1,7 +1,7 @@
 # General
-prefix   = "env_abc" # unique prefix that groups cloud assets into resource groups (2 created)
+prefix   = "env1" # unique prefix that groups cloud assets into resource groups (2 created)
 location = "eastus" # Region
-ssh_public_key = "~/.ssh/env_abc.pub" # Name of local file with public ssh key for connecting to the VMs
+ssh_public_key = "~/.ssh/env1.pub" # Name of local file with public ssh key for connecting to the VMs
 subscription_id = "XXXXXXXXXX" # Individual Azure subscription
 tenant_id = "XXXXXXXXXX"  # Tenant ID
 tags = { "division" = "XXXXXXXXXX",  "environment_name" = "XXXXXXXXXX", "starttime" = "0 9 * * 1-5", "stoptime" = "0 23 * * 1-5"}
